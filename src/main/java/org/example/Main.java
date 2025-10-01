@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
+    private static final String FILE_NAME = "library_log.csv";
+
     public static void main(String[] args) {
         Library library = new Library();
         MyLinkedList <Book> logBooks;
@@ -94,10 +96,6 @@ public class Main {
         return new Book(title, author, year, status);
     }
 
-    private static final String FILE_NAME = "library_log.csv";
-
-
-
     public static void writeLibrary(String operation, MyLinkedList<Book> books) {
         try (FileWriter writer = new FileWriter(FILE_NAME , true)) {
             writer.append("\nOperation: ").append(operation).append("\n");
@@ -114,6 +112,7 @@ public class Main {
             e.printStackTrace();
         }
     }
+
 
     public static void loadData(Library library) {
         String fileName = "data.csv";

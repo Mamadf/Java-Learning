@@ -1,0 +1,20 @@
+
+Operation: Add
+Title,Author,PublicationYear,Status
+m,f,123,BANNED
+
+Operation: Sort
+Title,Author,PublicationYear,Status
+test3,Kamali,1402,BORROWED
+test1,Farahani,1401,EXIST
+test5,Kamali,1396,BANNED
+test1,Mohammadi,1390,EXIST
+test6,Kamali,1387,BORROWED
+test2,Ghasemi,1382,BANNED
+test4,Hosseini,1376,BANNED
+m,f,123,BANNED
+
+Operation: TitleSearch
+Title,Author,PublicationYear,Status
+test1,Farahani,1401,EXIST
+test1,Mohammadi,1390,EXIST
