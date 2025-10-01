@@ -1,8 +1,0 @@
-
-Operation: Add
-Title,Author,PublicationYear,Status
-i,i,12,BANNED
-
-Operation: Delete
-Title,Author,PublicationYear,Status
-i,i,12,BANNED
