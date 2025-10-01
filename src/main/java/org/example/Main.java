@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Library library = new Library();
+        MyLinkedList <Book> logBooks;
         loadData(library);
         String commands = "Available commands:\n" +
                 "1. add - Add a new book\n" +
@@ -29,19 +30,25 @@ public class Main {
                 case "add":
                     book = readBookFromUser(scanner);
                     library.addBook(book);
-                    writeLibrary("Add" ,library.getBooks());
+                    logBooks = new MyLinkedList<>();
+                    logBooks.add(book);
+                    writeLibrary("Add" ,logBooks);
                     break;
                 case  "delete":
                     book = readBookFromUser(scanner);
                     library.deleteBook(book);
-                    writeLibrary("Delete" ,library.getBooks());
+                    logBooks = new MyLinkedList<>();
+                    logBooks.add(book);
+                    writeLibrary("Delete" ,logBooks);
                     break;
                 case "update":
                     book = readBookFromUser(scanner);
                     System.out.println("Please enter new book information:");
                     Book newBook =  readBookFromUser(scanner);
                     library.updateBook(book, newBook);
-                    writeLibrary("Update" ,library.getBooks());
+                    logBooks = new MyLinkedList<>();
+                    logBooks.add(book);
+                    writeLibrary("Update" ,logBooks);
                     break;
                 case "search by title":
                     System.out.print("Please enter the book title: ");
@@ -92,8 +99,8 @@ public class Main {
 
 
     public static void writeLibrary(String operation, MyLinkedList<Book> books) {
-        try (FileWriter writer = new FileWriter(FILE_NAME)) {
-            writer.append("Operation: ").append(operation).append("\n\n");
+        try (FileWriter writer = new FileWriter(FILE_NAME , true)) {
+            writer.append("\nOperation: ").append(operation).append("\n");
 
             writer.append("Title,Author,PublicationYear,Status\n");
             for (Book book : books) {
@@ -107,6 +114,7 @@ public class Main {
             e.printStackTrace();
         }
     }
+
     public static void loadData(Library library) {
         String fileName = "data.csv";
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {

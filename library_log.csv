@@ -1,11 +1,8 @@
-Operation: Add
 
+Operation: Add
 Title,Author,PublicationYear,Status
-test1,Farahani,1401,EXIST
-test4,Hosseini,1376,BANNED
-test1,Mohammadi,1390,EXIST
-test3,Kamali,1402,BORROWED
-test5,Kamali,1396,BANNED
-test6,Kamali,1387,BORROWED
-test2,Ghasemi,1382,BANNED
-adf,fasdf,3123,BANNED
+i,i,12,BANNED
+
+Operation: Delete
+Title,Author,PublicationYear,Status
+i,i,12,BANNED
