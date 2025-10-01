@@ -1,4 +1,4 @@
-Operation: Delete
+Operation: Add
 
 Title,Author,PublicationYear,Status
 test1,Farahani,1401,EXIST
@@ -8,3 +8,4 @@ test3,Kamali,1402,BORROWED
 test5,Kamali,1396,BANNED
 test6,Kamali,1387,BORROWED
 test2,Ghasemi,1382,BANNED
+adf,fasdf,3123,BANNED

@@ -9,30 +9,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Library library = new Library();
-        String fileName = "data.csv";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            boolean isHeader = true;
-
-            while ((line = br.readLine()) != null) {
-                if (isHeader) {
-                    isHeader = false;
-                    continue;
-                }
-
-                String[] values = line.split(",");
-                String title = values[0];
-                String author = values[1];
-                int year = Integer.parseInt(values[2]);
-                BookStatus status = BookStatus.valueOf(values[3]);
-
-                library.addBook(new Book(title, author, year, status));
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        loadData(library);
         String commands = "Available commands:\n" +
                 "1. add - Add a new book\n" +
                 "2. delete - Delete an existing book\n" +
@@ -126,6 +103,31 @@ public class Main {
                         .append(book.getStatus().name())
                         .append("\n");
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void loadData(Library library) {
+        String fileName = "data.csv";
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            boolean isHeader = true;
+
+            while ((line = br.readLine()) != null) {
+                if (isHeader) {
+                    isHeader = false;
+                    continue;
+                }
+
+                String[] values = line.split(",");
+                String title = values[0];
+                String author = values[1];
+                int year = Integer.parseInt(values[2]);
+                BookStatus status = BookStatus.valueOf(values[3]);
+
+                library.addBook(new Book(title, author, year, status));
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
